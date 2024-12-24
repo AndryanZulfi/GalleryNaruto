@@ -1,0 +1,259 @@
+/* Fonts */
+@font-face {
+  font-family: "Chunk Five";
+  src: url(../fonts/BebasNeue-Regular.ttf) format("truetype");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap");
+
+/*style*/
+body {
+  font: 18px/36px "Chunk Five", "Arial Narrow", arial, sans-serif;
+  background-color: #ddd;
+}
+
+.container {
+  width: 600px;
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  padding-left: 35px;
+  border-radius: 5px;
+  border: 5px solid gray;
+}
+
+h1 {
+  font-size: 80px;
+  margin: 50px 0;
+  text-align: center;
+  color: white;
+  color: #202c2d;
+  text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5,
+    -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;
+}
+
+.gallery li {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  /* overflow: hidden; */
+  border: 5px solid #666;
+  float: left;
+  margin-right: 20px;
+  position: relative;
+}
+
+.gallery li span {
+  display: block;
+  width: 120px;
+  height: 120px;
+  color: black;
+  background-color: rgba(200, 200, 200, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  line-height: 120px;
+  opacity: 0;
+  transition: 0.3s;
+  transform: scale(0) rotate(0);
+}
+.gallery li:hover span {
+  opacity: 1;
+  transform: scale(1) rotate(360deg);
+}
+
+.overlay {
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  transition: 0.8s;
+  text-align: center;
+  padding: 70px 0;
+}
+
+.overlay:target {
+  width: auto;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  right: 0;
+}
+.overlay img {
+  max-height: 100%;
+  box-shadow: 0 0 5px black;
+}
+
+.overlay:target img {
+  animation: ZoomandFade 1s;
+}
+.overlay .close {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  margin-left: -20px;
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  border: 1px solid white;
+  line-height: 15px;
+  padding: 10px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.overlay:target .close {
+  animation: SlideDownFide 0.5s 0.5s forwards;
+}
+
+/* Navigasi */
+
+/* next */
+.overlay .next {
+  position: absolute;
+  text-indent: -9999;
+  top: 50%;
+  margin-top: -20px;
+  right: 25%;
+  opacity: 0;
+}
+
+.overlay:target .next {
+  animation: ZoomandFade 0.5s 0.5s forwards;
+}
+
+.next {
+  width: 80px;
+  height: 80px;
+  background-color: black;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.overlay .lanjut:hover .next {
+  background-color: aqua;
+}
+
+.lanjut nav {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #fff;
+  transition: 0.5s;
+}
+
+.next nav {
+  top: 50%;
+  right: 32px;
+  transform: translateY(-50%) rotate(-45deg);
+  border-top: none;
+  border-left: none;
+}
+.next:hover nav {
+  right: 25px;
+}
+
+.next nav::before {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 4px;
+  background-color: #fff;
+  transform: rotate(45deg) translate(-8px, 19px) scale(0.001);
+  transition: 0.5s;
+}
+.next:hover nav::before {
+  transform: rotate(45deg) translate(-8px, 19px) scale(1);
+}
+
+/* prev */
+
+.overlay .prev {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  left: 25%;
+  transform: scale(0);
+}
+.overlay:target .prev {
+  animation: ZoomandFade 0.5s 0.5s forwards;
+}
+
+.prev {
+  width: 80px;
+  height: 80px;
+  background-color: black;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.overlay .mundur:hover .prev {
+  background-color: aqua;
+}
+.mundur nav {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #fff;
+  transition: 0.5s;
+}
+
+.prev nav {
+  top: 50%;
+  left: 32px;
+  transform: translateY(-50%) rotate(-45deg);
+  border-bottom: none;
+  border-right: none;
+}
+.mundur:hover nav {
+  left: 25px;
+}
+
+.prev nav::before {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 4px;
+  background-color: #fff;
+  transform: rotate(45deg) translate(-5px, 18px) scale(0.001);
+  transition: 0.5s;
+}
+
+.prev:hover nav::before {
+  transform: rotate(45deg) translate(-5px, 18px) scale(1);
+}
+
+/*Animasi*/
+@keyframes SlideDownFide {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    margin-top: -20px;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes ZoomandFade {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*clear*/
+.clear {
+  clear: both;
+}
